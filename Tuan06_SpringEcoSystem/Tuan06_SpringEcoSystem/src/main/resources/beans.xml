@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Setter-based Address bean -->
+    <bean id="addressSetter" class="com.example.lab6.model.Address">
+        <property name="city" value="Ho Chi Minh City"/>
+        <property name="state" value="Go Vap"/>
+        <property name="country" value="Vietnam"/>
+    </bean>
+
+    <!-- Constructor-based Address bean -->
+    <bean id="addressCtor" class="com.example.lab6.model.Address">
+        <constructor-arg index="0" value="Da Nang"/>
+        <constructor-arg index="1" value="Hai Chau"/>
+        <constructor-arg index="2" value="Vietnam"/>
+    </bean>
+
+    <!-- Employee via constructor injection -->
+    <bean id="employeeCtor" class="com.example.lab6.model.Employee">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="Pham Minh Tien"/>
+        <constructor-arg index="2" ref="addressCtor"/>
+    </bean>
+
+    <!-- Employee via setter injection -->
+    <bean id="employeeSetter" class="com.example.lab6.model.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Nguyen Van A"/>
+        <property name="address" ref="addressSetter"/>
+    </bean>
+
+</beans>
