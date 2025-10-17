@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS employees (
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  city VARCHAR(100)
+);
